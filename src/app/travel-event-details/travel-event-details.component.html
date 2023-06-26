@@ -1,0 +1,52 @@
+<div class="container">
+    <div *ngIf="!isEditMode">
+        <h2>Travel Event Details</h2>
+        <div class="details-row">
+            <span class="details-label">Title:</span>
+            <span class="details-value">{{ travelEntry.title }}</span>
+        </div>
+        <div class="details-row">
+            <span class="details-label">Location:</span>
+            <span class="details-value">{{ travelEntry.location }}</span>
+        </div>
+        <div class="details-row">
+            <span class="details-label">Date:</span>
+            <span class="details-value">{{ travelEntry.date | date }}</span>
+        </div>
+        <div class="details-row">
+            <span class="details-label">Description:</span>
+            <span class="details-value">{{ travelEntry.description }}</span>
+        </div>
+        <div class="button-row">
+            <button (click)="toggleEditMode()">Edit</button>
+            <button (click)="deleteTravelEntry()">Delete</button>
+        </div>
+    </div>
+  
+    <div *ngIf="isEditMode" class="edit-form">
+      <h2>Edit Travel Event</h2>
+      <form (submit)="saveChanges()">
+        <div class="form-row">
+          <label>Title:</label>
+          <input type="text" [(ngModel)]="travelEntry.title" name="title" required>
+        </div>
+        <div class="form-row">
+          <label>Location:</label>
+          <input type="text" [(ngModel)]="travelEntry.location" name="location" required>
+        </div>
+        <div class="form-row">
+          <label>Date:</label>
+          <input type="date" [(ngModel)]="travelEntry.date" name="date" required>
+        </div>
+        <div class="form-row">
+          <label>Description:</label>
+          <textarea [(ngModel)]="travelEntry.description" name="description" required></textarea>
+        </div>
+        <div class="button-row">
+          <button type="submit">Save Changes</button>
+          <button (click)="toggleEditMode()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

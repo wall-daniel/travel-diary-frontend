@@ -1,0 +1,15 @@
+<div>
+  <h2>Travel Entries</h2>
+  <br>
+  <!-- travel-entry-list.component.html -->
+
+  <ul class="entry-list">
+    <li *ngFor="let entry of travelEntries" class="entry-item">
+      <p class="entry-title">{{ entry.title }}</p>
+      <p class="entry-location">{{ entry.location }}</p>
+      <button (click)="viewDetails(entry._id)" class="detail-button">View Details</button>
+      <button (click)="deleteEntry(entry._id)" class="delete-button">Delete</button>
+    </li>
+  </ul>
+
+</div>
