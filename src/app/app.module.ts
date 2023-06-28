@@ -13,6 +13,7 @@ import { AuthService } from './services/auth.service';
 import { TravelEntryService } from './services/travel-entry.service';
 import { CreateTravelEntryComponent } from './create-travel-entry/create-travel-entry.component';
 import { TravelEventDetailsComponent } from './travel-event-details/travel-event-details.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TravelEventDetailsComponent } from './travel-event-details/travel-event
     TravelEntryListComponent,
     LoginComponent,
     CreateTravelEntryComponent,
-    TravelEventDetailsComponent
+    TravelEventDetailsComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

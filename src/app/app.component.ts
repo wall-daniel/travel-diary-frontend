@@ -12,16 +12,16 @@ export class AppComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit(): void {
-    const token = this.authService.getToken();
-
+    let token = this.authService.getToken();
     if (!token) {
       this.router.navigate(['/login']);
     }
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
+        token = this.authService.getToken();
         const currentRoute = this.router.url;
-        if (!token && currentRoute !== '/login') {
+        if (!token && !(currentRoute == '/login' || currentRoute == '/signup')) {
           this.router.navigate(['/login']);
         } else if (token && currentRoute === '/login') {
           this.router.navigate(['/travel-entries']);

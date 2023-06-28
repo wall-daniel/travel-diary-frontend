@@ -21,10 +21,17 @@ export class AuthService {
   saveToken(token: string): void {
     localStorage.setItem(this.TOKEN_KEY, token); // Save the token in localStorage
   }
+
   clearToken(): void {
     localStorage.removeItem(this.TOKEN_KEY);
   }
+
   getToken(): string | null {
     return localStorage.getItem(this.TOKEN_KEY)
+  }
+  
+  signup(signupData: any): Observable<any> {
+    const url = `${this.baseUrl}/signup`;
+    return this.http.post(url, signupData);
   }
 }
